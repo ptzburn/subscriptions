@@ -2,6 +2,8 @@ import jwt from 'jsonwebtoken';
 
 import { JWT_SECRET } from '../config/env.js';
 
+import User from '../models/user.model.js';
+
 const authorize = async (req, res, next) => {
   try {
     let token;
@@ -28,3 +30,5 @@ const authorize = async (req, res, next) => {
     res.status(401).json({ message: 'Unauthorized', error: error.message });
   }
 };
+
+export default authorize;
